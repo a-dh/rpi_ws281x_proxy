@@ -14,8 +14,7 @@ RestartSec=2
 # Systemd creates /run/rpi-led-proxy
 RuntimeDirectory=rpi-led-proxy
 RuntimeDirectoryMode=0755
-# Define the environment variable for Python to pick up
-Environment="LED_SOCKET_NAME=led_socket"
+# Daemon settings (see README); override with a drop-in
 Environment="LED_COUNT=2"
 Environment="LED_BRIGHTNESS=128"
 # Comma-separated per-index colours shown at startup, e.g. via a drop-in:

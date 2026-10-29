@@ -109,8 +109,8 @@ The eye perceives brightness roughly logarithmically:
 
 ## Socket protocol
 
-The daemon listens on `/run/rpi-led-proxy/led_socket` (mode 0666). The client
-falls back to `/tmp/led_socket` when that path doesn't exist. Each connection
+The daemon listens on `/run/rpi-led-proxy/wsled_socket` (mode 0666). The client
+falls back to `/tmp/wsled_socket` when that path doesn't exist. Each connection
 carries one text command:
 
 | Command | Effect | Reply |

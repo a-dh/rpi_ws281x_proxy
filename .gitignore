@@ -15,5 +15,5 @@ venv/
 ENV/
 
 # System-level runtime (just in case)
-/tmp/led_socket
+/tmp/wsled_socket
 /run/rpi-led-proxy/

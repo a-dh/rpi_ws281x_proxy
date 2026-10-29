@@ -2,7 +2,7 @@ import os
 
 # The package/service name used for directory paths
 APP_NAME = "rpi-led-proxy"
-SOCKET_NAME = "led_socket"
+SOCKET_NAME = "wsled_socket"
 
 def get_socket_path():
     # systemd automatically sets RUNTIME_DIRECTORY if RuntimeDirectory= is used
