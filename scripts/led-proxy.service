@@ -1,0 +1,31 @@
+[Unit]
+Description=Privileged LED Proxy Service
+# Start early (before networking) so boot-time LED colours (LED_INIT_COLORS) show
+# as soon as possible; only needs the root filesystem.
+DefaultDependencies=no
+After=local-fs.target
+Before=network-pre.target shutdown.target
+Conflicts=shutdown.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/wsled_proxy.py
+Restart=on-failure
+RestartSec=2
+# Systemd creates /run/rpi-led-proxy
+RuntimeDirectory=rpi-led-proxy
+RuntimeDirectoryMode=0755
+# Define the environment variable for Python to pick up
+Environment="LED_SOCKET_NAME=led_socket"
+Environment="LED_COUNT=2"
+Environment="LED_BRIGHTNESS=128"
+# Comma-separated per-index colours shown at startup, e.g. via a drop-in:
+# Environment="LED_INIT_COLORS=#00ff00,#ff0000"
+
+# Hardening
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

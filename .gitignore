@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build directories
+rpi-led-proxy_*/
+*.deb
+build/
+*.egg-info
+
+# Environment
+.venv/
+venv/
+ENV/
+
+# System-level runtime (just in case)
+/tmp/led_socket
+/run/rpi-led-proxy/

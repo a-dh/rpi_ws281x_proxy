@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rpi-led-proxy"
+version = "2.0"
+description = "Userland Python client for a privileged WS281x LED proxy daemon on Raspberry Pi"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Albert den Haan" }]
+requires-python = ">=3.8"
+# Move the hardware driver to an "extra"
+dependencies = []
+
+[project.optional-dependencies]
+hardware = ["rpi_ws281x"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["wsled_client", "shared_config"]
